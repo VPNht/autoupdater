@@ -45,12 +45,11 @@ function Updater(options) {
         currentVersion: false
     });
 
-    this.outputDir = path.join(process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'], 'Library', 'Application\ Support', 'VPN.ht');
 
     this.updateData = null;
     this.env = (process.env.NODE_ENV === 'development') ? 'development' : 'production';
-
-    this.filename = (process.platform === 'win32') ? 'update.exe' : 'update.pkg';
+    this.outputDir = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'];
+    this.filename = (process.platform === 'win32') ? 'vpnht_update.exe' : 'vpnht_update.pkg';
 }
 
 Updater.prototype.check = function() {

@@ -134,9 +134,8 @@ Updater.prototype.verify = function(source) {
 };
 
 Updater.prototype.update = function() {
-    var outputFile = path.join(path.dirname(this.outputDir), this.filename);
+    var outputFile = path.join(this.outputDir, this.filename);
     var self = this;
-
     if(this.updateData){
         return this.download(this.updateData.updateUrl, outputFile)
             .then(forcedBind(this.verify, this))
